@@ -6,26 +6,29 @@ struct PasswordItem: Identifiable, Codable {
     let username: String
     let password: String
     let notes: String
-    let userId: String
+    let userEmail: String // ✅ CAMBIO: userEmail en lugar de userId
+    let userId: String    // ✅ Mantener por compatibilidad
     let createdAt: Date
     
     // Inicializador principal
-    init(service: String, username: String, password: String, notes: String, userId: String) {
+    init(service: String, username: String, password: String, notes: String, userEmail: String) {
         self.service = service
         self.username = username
         self.password = password
         self.notes = notes
-        self.userId = userId
+        self.userEmail = userEmail
+        self.userId = "" // Temporal
         self.createdAt = Date()
     }
     
-    // ✅ AÑADIDO: Inicializador completo para Firestore
-    init(id: String?, service: String, username: String, password: String, notes: String, userId: String, createdAt: Date) {
+    // Inicializador completo para Firestore
+    init(id: String?, service: String, username: String, password: String, notes: String, userEmail: String, userId: String, createdAt: Date) {
         self.id = id
         self.service = service
         self.username = username
         self.password = password
         self.notes = notes
+        self.userEmail = userEmail // ✅ CAMBIO
         self.userId = userId
         self.createdAt = createdAt
     }

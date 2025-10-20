@@ -216,6 +216,14 @@ struct MainListView: View {
             )
         }
         .onAppear {
+            // ✅ DEBUG PARA VERIFICAR EL CAMBIO
+            if let user = Auth.auth().currentUser {
+                print("🔍 DEBUG - UID ACTUAL: \(user.uid)")
+                print("🔍 DEBUG - EMAIL ACTUAL: \(user.email ?? "no email")")
+            } else {
+                print("❌ DEBUG - No hay usuario autenticado")
+            }
+            
             passwordViewModel.fetchPasswords()
         }
     }

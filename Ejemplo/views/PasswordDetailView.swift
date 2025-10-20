@@ -323,7 +323,7 @@ struct PasswordDetailView_Previews: PreviewProvider {
                     username: "usuario@gmail.com",
                     password: "mi_contraseña_secreta",
                     notes: "Cuenta personal de correo",
-                    userId: "preview-user"
+                    userEmail: "test@ejemplo.com"
                 )
             )
         }
